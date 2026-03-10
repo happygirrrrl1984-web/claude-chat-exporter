@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Claude Chat PDF 导出",
+  "version": "1.0.0",
+  "description": "将 Claude.ai 当前对话导出为简洁 PDF 文件",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["https://claude.ai/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "导出为 PDF"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://claude.ai/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

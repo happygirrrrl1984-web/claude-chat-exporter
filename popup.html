@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Claude PDF 导出</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      width: 280px;
+      padding: 18px 16px 14px;
+      font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC',
+                   'Microsoft YaHei', 'Segoe UI', sans-serif;
+      font-size: 13px;
+      color: #333;
+      background: #fff;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .brand-icon {
+      width: 22px;
+      height: 22px;
+      background: #5b5ea6;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    h1 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #111;
+    }
+
+    .subtitle {
+      font-size: 11px;
+      color: #999;
+      margin-bottom: 14px;
+      padding-left: 30px;
+    }
+
+    #exportBtn {
+      width: 100%;
+      padding: 10px 0;
+      background: #5b5ea6;
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s, opacity 0.15s;
+    }
+
+    #exportBtn:hover:not(:disabled) { background: #4a4d8f; }
+
+    #exportBtn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    #status {
+      display: none;
+      margin-top: 10px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      line-height: 1.55;
+      white-space: pre-wrap;
+    }
+
+    #status.info    { display: block; background: #f0f3ff; color: #4a4d8f; }
+    #status.success { display: block; background: #f0fff6; color: #256b45; }
+    #status.error   { display: block; background: #fff0f0; color: #b93232; }
+
+    .tip {
+      margin-top: 12px;
+      font-size: 10.5px;
+      color: #bbb;
+      line-height: 1.5;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="brand">
+    <div class="brand-icon">P</div>
+    <h1>Claude PDF 导出</h1>
+  </div>
+  <p class="subtitle">将当前对话导出为 PDF</p>
+
+  <button id="exportBtn">导出为 PDF</button>
+  <div id="status"></div>
+  <p class="tip">打印预览打开后，在对话框中选择<br>「另存为 PDF」即可保存文件。</p>
+
+  <script src="popup.js"></script>
+</body>
+</html>
